@@ -19,6 +19,7 @@
     </properties>
 
     <dependencies>
+        <!--scala依赖库，直接加入，不依赖IDEA-->
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-compiler</artifactId>
@@ -26,6 +27,7 @@
             <scope>compile</scope>
         </dependency>
 
+        <!--spark 程序需要，spark streaming引入时不会显式声明-->
         <!--
        <dependency>
             <groupId>org.apache.spark</groupId>
@@ -33,22 +35,22 @@
             <version>${spark.version}</version>
         </dependency>
         -->
+        <!--spark streaming需要-->
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-streaming_${scala.binary.version}</artifactId>
             <version>${spark.version}</version>
         </dependency>
+        <!--spark streaming 与kafka集成需要-->
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-streaming-kafka_${scala.binary.version}</artifactId>
             <version>${spark.version}</version>
         </dependency>
-
-
-
     </dependencies>
     <build>
         <plugins>
+            <!--构建scala项目需要-->
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
